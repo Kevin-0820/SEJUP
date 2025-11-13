@@ -6,7 +6,7 @@ import Archivos from "./components/Archivos";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="1038265379119-mbtaqfbva0d629656op6oimgppjlcbfe.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="su_api">
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
