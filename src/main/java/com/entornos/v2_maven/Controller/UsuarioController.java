@@ -1,6 +1,7 @@
 package com.entornos.v2_maven.Controller;
 
 import com.entornos.v2_maven.Entity.Usuario;
+import com.entornos.v2_maven.Enums.RoleList;
 import com.entornos.v2_maven.Service.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -45,4 +46,10 @@ public class UsuarioController {
         usuarioService.deleteUserById(id);
         return ResponseEntity.ok("Usuario eliminado");
     }
+
+    @GetMapping("/abogados")
+    public ResponseEntity<List<Usuario>> getAbogados() {
+        return ResponseEntity.ok(usuarioService.findByRole(RoleList.ROLE_ABOGADO));
+    }
+
 }

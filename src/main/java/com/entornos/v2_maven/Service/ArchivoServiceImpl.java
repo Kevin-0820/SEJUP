@@ -1,6 +1,7 @@
 package com.entornos.v2_maven.Service;
 
 import com.entornos.v2_maven.Entity.Archivo;
+import com.entornos.v2_maven.Entity.Rol;
 import com.entornos.v2_maven.Entity.Usuario;
 import com.entornos.v2_maven.Reponse.ResponseArchivo;
 import com.entornos.v2_maven.Repository.ArchivoRepository;
@@ -60,12 +61,13 @@ public class ArchivoServiceImpl implements Archivoservice {
                     .path("/api/SEJUP/Archivo/")
                     .path(dbfile.getId().toString())
                     .toUriString();
-
             return ResponseArchivo.builder()
                     .nombreArchivo(dbfile.getNombreArchivo())
                     .tipoArchivo(dbfile.getTipoArchivo())
                     .url(fileDownloadUri)
                     .size(dbfile.getData().length)
+                    .usuario(dbfile.getUsuario().getUsername())
+                    .rol(dbfile.getUsuario().getRol().getName().name())
                     .build();
         }).collect(Collectors.toList());
     }

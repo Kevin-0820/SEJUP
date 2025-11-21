@@ -89,4 +89,10 @@
             usuario.setRol(rol);
             usuarioRepository.save(usuario);
         }
+
+        public List<Usuario> findByRole(RoleList rolName) {
+            return usuarioRepository.findByRol_Name(rolName);
+        }
+
+
     }

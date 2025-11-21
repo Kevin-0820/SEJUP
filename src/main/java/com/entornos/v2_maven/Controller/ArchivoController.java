@@ -3,6 +3,7 @@ package com.entornos.v2_maven.Controller;
 import com.entornos.v2_maven.Entity.Archivo;
 import com.entornos.v2_maven.Reponse.ResponseArchivo;
 import com.entornos.v2_maven.Reponse.ResponseMessage;
+import com.entornos.v2_maven.Service.ArchivoServiceImpl;
 import com.entornos.v2_maven.Service.Archivoservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +22,7 @@ import java.util.UUID;
 public class ArchivoController {
 
     @Autowired
-    private Archivoservice archivoService;
+    private ArchivoServiceImpl archivoService;
 
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
